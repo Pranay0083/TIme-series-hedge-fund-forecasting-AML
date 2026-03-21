@@ -1,0 +1,15 @@
+numpy
+pandas
+lightgbm
+scikit-learn
+pyarrow
+fastparquet
+tqdm
+tsfresh
+matplotlib
+seaborn
+optuna
+polars
+xgboost
+scipy
+statsmodels
