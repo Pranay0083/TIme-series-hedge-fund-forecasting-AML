@@ -3,9 +3,12 @@ import './index.css'
 import TitleSlide from './slides/TitleSlide'
 import ProblemSlide from './slides/ProblemSlide'
 import DatasetSlide from './slides/DatasetSlide'
-import EDASlide from './slides/EDASlide'
+import EDA1 from './slides/EDA1'
+import EDA2 from './slides/EDA2'
+import EDA3 from './slides/EDA3'
 import PreprocessSlide from './slides/PreprocessSlide'
-import FeatureEngSlide from './slides/FeatureEngSlide'
+import FeatureEng1 from './slides/FeatureEng1'
+import FeatureEng2 from './slides/FeatureEng2'
 import SymbolicRegressionSlide from './slides/SymbolicRegressionSlide'
 import ModelArchSlide from './slides/ModelArchSlide'
 import AdvancedSlide from './slides/AdvancedSlide'
@@ -17,9 +20,12 @@ const slides = [
   { component: TitleSlide, title: 'Title' },
   { component: ProblemSlide, title: 'Problem' },
   { component: DatasetSlide, title: 'Dataset' },
-  { component: EDASlide, title: 'EDA' },
+  { component: EDA1, title: 'EDA I - Data & Targets' },
+  { component: EDA2, title: 'EDA II - Leakage & Noise' },
+  { component: EDA3, title: 'EDA III - Temporal Shifts' },
   { component: PreprocessSlide, title: 'Preprocessing' },
-  { component: FeatureEngSlide, title: 'Features' },
+  { component: FeatureEng1, title: 'Features I - Validation' },
+  { component: FeatureEng2, title: 'Features II - TSFresh' },
   { component: SymbolicRegressionSlide, title: 'Symbolic Regression' },
   { component: ModelArchSlide, title: 'Model' },
   { component: AdvancedSlide, title: 'Advanced' },

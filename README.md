@@ -1,7 +1,7 @@
 # Multi-Horizon, Multi-Entity Anonymous Time-Series Forecasting
 
 > **Phase 1 Project Report**  
-> **Course:** Advanced Machine Learning & Deep Learning (2025/26)  
+> **Course:** Advanced Machine Learning & Deep Learning (SEM -6)  
 > **Institution:** Rishihood University  
 > **Team:** Bias and Variance  
 
