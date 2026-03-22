@@ -72,6 +72,7 @@ class PreprocessPipeline:
             cfg['target_clip_lower'], cfg['target_clip_upper']
         )
         h_stats = pd.DataFrame(cfg['horizon_stats'])
+        h_stats.index = h_stats.index.astype(df['horizon'].dtype)
         df = df.merge(h_stats, left_on='horizon', right_index=True, how='left')
         df['y_target_hnorm'] = (df['y_target_clipped'] - df['h_mean']) / df['h_std']
         df.drop(columns=['h_mean', 'h_std'], inplace=True, errors='ignore')

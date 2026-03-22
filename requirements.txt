@@ -13,3 +13,5 @@ polars
 xgboost
 scipy
 statsmodels
+mlxtend
+ipywidgets
