@@ -1,9 +1,14 @@
+import eda1_1 from '../assets/eda1_1.png';
+import eda1_2 from '../assets/eda1_2.png';
+import eda1_3 from '../assets/eda1_3.png';
+
 export default function EDA1() {
   const findings = [
     {
       title: 'Structural Target Variance',
       detail: 'Target variance strictly scales with the forecasting horizon. Standard deviation increases from 11.7 to 52.8 from horizon 1 to 25.',
       icon: '📈',
+      image: eda1_1,
       what: 'Aggregated target standard deviation broken down by horizon.',
       why: 'Identified the necessity to normalize the target scaling per horizon. Without this, long-horizon target variances would completely dominate the loss function, ignoring short-term signals.'
     },
@@ -11,6 +16,7 @@ export default function EDA1() {
       title: 'Extreme Kurtosis (Fat Tails)',
       detail: 'The target variable (y_target) has an extreme kurtosis (~290) featuring a near-zero center and highly fat tails.',
       icon: '📊',
+      image: eda1_2,
       what: 'Analyzed the target distribution using clipping, histograms, qq-plots, and ran Shapiro-Wilk/Anderson-Darling tests.',
       why: 'Established the fact that standard loss functions (like MSE) would fail completely. We must use robust losses like Huber or MAE to handle these non-Gaussian tails without gradient explosion.'
     },
@@ -18,6 +24,7 @@ export default function EDA1() {
       title: 'Large-Scale Multi-Horizon Structure',
       detail: 'The dataset is massive (5.3M rows, 94 features) with multiple distinct forecasting horizons (1, 3, 10, 25) embedded within.',
       icon: '🌐',
+      image: eda1_3,
       what: 'Dataset dimension analysis highlighting the scale and the overlap across temporal forecasting targets.',
       why: 'Dictates the computational strategy and confirms that a single monolithic model might struggle with the distinct dynamics of different horizons.'
     }
@@ -33,7 +40,7 @@ export default function EDA1() {
           <span className="gradient-text">Data Structure & Target Anomalies</span>
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6 overflow-y-auto max-h-[60vh] p-2 hide-scrollbar">
+        <div className="grid md:grid-cols-3 gap-6 overflow-y-auto max-h-[70vh] p-2 hide-scrollbar">
           {findings.map((f, i) => (
             <div key={f.title} className={`glass-card p-5 fade-up opacity-0 stagger-${i + 2} hover:border-primary/50 transition-all duration-300 group flex flex-col`}>
               <div className="flex items-center gap-3 mb-3">
@@ -42,6 +49,10 @@ export default function EDA1() {
               </div>
               <p className="text-sm border-l-2 border-accent/50 pl-3 mb-4 text-text-secondary leading-relaxed flex-grow">{f.detail}</p>
               
+              <div className="mb-4 w-full bg-surface-darker rounded-lg overflow-hidden border border-white/5 h-32 flex items-center justify-center">
+                <img src={f.image} alt={f.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+              </div>
+
               <div className="space-y-3 mt-auto pt-4 border-t border-white/5">
                 <div>
                   <span className="text-xs font-bold text-accent uppercase tracking-wider block mb-1">What & How?</span>
