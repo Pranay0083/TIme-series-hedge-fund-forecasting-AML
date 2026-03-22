@@ -27,7 +27,7 @@ export default function SymbolicRegressionSlide() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-3 fade-up opacity-0 stagger-3">
-          {discoveries.map((d, i) => (
+          {discoveries.map((d) => (
             <div key={d.label} className="glass-card px-4 py-3 flex items-start gap-3 hover:border-primary/20 transition-all">
               <div className="shrink-0 flex flex-col items-center gap-1">
                 <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${

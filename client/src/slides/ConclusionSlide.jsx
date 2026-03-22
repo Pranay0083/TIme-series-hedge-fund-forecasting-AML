@@ -42,20 +42,20 @@ export default function ConclusionSlide() {
             </h3>
             {[
               {
-                title: 'Neural Architecture Search',
-                desc: 'Explore TabNet, FT-Transformer, and attention-based architectures for tabular time-series',
+                title: 'Information Geometry & Manifold Learning',
+                desc: 'Map financial structures onto non-euclidean manifolds for robust pattern extraction in non-stationary regimes.',
               },
               {
-                title: 'Optuna Hyperparameter Tuning',
-                desc: 'Bayesian optimization per horizon and sub-category for optimal LightGBM configurations',
+                title: 'Target De-noising',
+                desc: 'Clean robust signal streams natively by mitigating extreme fat-tail kurtosis iteratively.',
               },
               {
-                title: 'Stacking & Meta-Learning',
-                desc: 'Combine predictions from multiple pipelines using a meta-learner for ensemble diversity',
+                title: 'Denoising Autoencoders (DAEs)',
+                desc: 'Replace current hard Information Coefficient (IC) gates with automated representation learning to distill core dimensional features.',
               },
               {
-                title: 'Online Learning',
-                desc: 'Adaptive model updates as new data arrives — bridging the train/test distribution gap',
+                title: 'Tabular Transformers',
+                desc: 'Use cross-attention mechanisms natively across entities and features to directly capture nuanced, non-linear relationships.',
               },
             ].map((item) => (
               <div key={item.title} className="glass-card p-4 hover:border-accent/30 transition-all">

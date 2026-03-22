@@ -1,4 +1,4 @@
-# Multi-Horizon, Multi-Entity Anonymous Time-Series Forecasting
+# Time-Series Hedge Fund Forecasting: Multi-Horizon, Multi-Entity Anonymous Time-Series Forecasting
 
 > **Phase 1 Project Report**  
 > **Course:** Advanced Machine Learning & Deep Learning (SEM -6)  
@@ -14,10 +14,47 @@
 ## 📌 Project Overview
 This project focuses on predicting synthetic financial instrument returns across multiple prediction horizons ($h \in \{1, 3, 10, 25\}$) based on the **Kaggle: Hedge Fund — Time Series Forecasting** competition. The dataset is thoroughly anonymized, involving an expanding universe of assets, temporal non-stationarity, and severe noise-to-signal ratios typical of quantitative finance. 
 
-This repository encapsulates **Phase 1** of our research, primarily covering:
+Our goal is to create a structured, production-ready time series forecasting solution. This repository encapsulates **Phase 1** of our research, primarily covering:
 1. Deep Exploratory Data Analysis (EDA).
 2. Theoretical and Mathematical foundation for model selection.
 3. Creation of a robust preprocessing pipeline mitigating leakage and structural concept drift.
+
+---
+
+## 🎯 Problem Statement
+
+Predict future values for time series data across multiple forecast horizons (1, 3, 10, 25). Models are evaluated on out-of-sample weighted RMSE score.
+
+**Scoring Formula:**
+
+$$Score = \sqrt{1 - \min\left(\max\left(\frac{\sum w_i(y_i - \hat{y}_i)^2}{\sum w_i y_i^2}, 0\right), 1\right)}$$
+
+### Dataset
+
+| Column | Description |
+|--------|-------------|
+| `id` | Unique key: `code__sub_code__sub_category__horizon__ts_index` |
+| `horizon` | Forecast horizon: 1, 3, 10, 25 |
+| `weight` | Row weight for loss (**DO NOT USE AS FEATURE**) |
+| `feature_a` to `feature_ch` | 86 anonymized features |
+
+### 📊 Data Horizons
+
+| Horizon | Description | Rows |
+|---------|-------------|------|
+| 1 | Short-term | ~1.4M |
+| 3 | Medium-short | ~1.4M |
+| 10 | Medium-long | ~1.3M |
+| 25 | Long-term | ~1.2M |
+
+### Tips
+
+- Focus on recent periods (recency weighting)
+- Low signal-to-noise ratio is a key challenge
+- Process is non-stationary over time
+- External data is forbidden
+
+---
 
 ## 🏗️ Architecture & Codebase Structure
 The repository is segmented into modular environments enabling structured scientific exploration and reproducible model pipelines.
@@ -61,10 +98,30 @@ Moving forward, `Team Bias and Variance` will dive into heavy modeling:
 
 ---
 
-### Setup & Usage
-1. Clone the repository.
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Read the theoretical breakdown in the `literature_review/research_paper/` directory.
+## 📁 Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Architecture](docs/architecture.md) | Project structure & folder organization |
+| [Setup](docs/setup.md) | Environment setup instructions |
+
+---
+
+## 🚀 Setup & Quick Start
+
+```bash
+# Clone the repository
+git clone <your-repository-url>
+cd TIme-series-hedge-fund-forecasting-AML
+
+# Setup environment
+conda create -n venv python=3.11 && conda activate venv
+pip install -r requirements.txt
+
+# Download & prepare data
+kaggle competitions download -c ts-forecasting
+unzip ts-forecasting.zip -d data/raw/combined/
+python src/data/horizon_split.py
+```
+
+*For theoretical breakdown, refer to the `literature_review/research_paper/` directory.*

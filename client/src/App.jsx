@@ -14,6 +14,7 @@ import {
 import PreprocessSlide from './slides/PreprocessSlide'
 import FeatureEng1 from './slides/FeatureEng1'
 import FeatureEng2 from './slides/FeatureEng2'
+import FeatureSelectionGraphSlide from './slides/FeatureSelectionGraphSlide'
 import SymbolicRegressionSlide from './slides/SymbolicRegressionSlide'
 import ModelArchSlide from './slides/ModelArchSlide'
 import AdvancedSlide from './slides/AdvancedSlide'
@@ -34,6 +35,7 @@ const slides = [
   { component: PreprocessSlide, title: 'Preprocessing' },
   { component: FeatureEng1, title: 'Features I - Validation' },
   { component: FeatureEng2, title: 'Features II - TSFresh' },
+  { component: FeatureSelectionGraphSlide, title: 'Features III - Distillation' },
   { component: SymbolicRegressionSlide, title: 'Symbolic Regression' },
   { component: ModelArchSlide, title: 'Model' },
   { component: AdvancedSlide, title: 'Advanced' },
@@ -44,7 +46,7 @@ const slides = [
 
 function App() {
   const [current, setCurrent] = useState(0)
-  const [direction, setDirection] = useState(1)
+  const [, setDirection] = useState(1)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
