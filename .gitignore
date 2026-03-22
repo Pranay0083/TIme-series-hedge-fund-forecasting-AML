@@ -124,3 +124,9 @@ htmlcov/
 data
 
 group_medians.parquet
+
+# ============================================
+# Client / Vite
+# ============================================
+client/node_modules/
+client/dist/
