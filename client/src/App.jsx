@@ -3,9 +3,14 @@ import './index.css'
 import TitleSlide from './slides/TitleSlide'
 import ProblemSlide from './slides/ProblemSlide'
 import DatasetSlide from './slides/DatasetSlide'
-import EDA1 from './slides/EDA1'
-import EDA2 from './slides/EDA2'
-import EDA3 from './slides/EDA3'
+import {
+  EDAVariance,
+  EDAKurtosis,
+  EDALeakage,
+  EDAWeights,
+  EDAUniverse,
+  EDACovariance
+} from './slides/EDASlides'
 import PreprocessSlide from './slides/PreprocessSlide'
 import FeatureEng1 from './slides/FeatureEng1'
 import FeatureEng2 from './slides/FeatureEng2'
@@ -20,9 +25,12 @@ const slides = [
   { component: TitleSlide, title: 'Title' },
   { component: ProblemSlide, title: 'Problem' },
   { component: DatasetSlide, title: 'Dataset' },
-  { component: EDA1, title: 'EDA I - Data & Targets' },
-  { component: EDA2, title: 'EDA II - Leakage & Noise' },
-  { component: EDA3, title: 'EDA III - Temporal Shifts' },
+  { component: EDAVariance, title: 'EDA - Target Variance' },
+  { component: EDAKurtosis, title: 'EDA - Kurtosis Trends' },
+  { component: EDALeakage, title: 'EDA - Unseen Entities' },
+  { component: EDAWeights, title: 'EDA - Weight Anomalies' },
+  { component: EDAUniverse, title: 'EDA - Expanding Universe' },
+  { component: EDACovariance, title: 'EDA - Instable Covariance' },
   { component: PreprocessSlide, title: 'Preprocessing' },
   { component: FeatureEng1, title: 'Features I - Validation' },
   { component: FeatureEng2, title: 'Features II - TSFresh' },

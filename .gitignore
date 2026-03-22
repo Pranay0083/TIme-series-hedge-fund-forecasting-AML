@@ -134,3 +134,6 @@ group_medians.parquet
 # ============================================
 client/node_modules/
 client/dist/
+
+changed_files.txt
+raw_status.txt
