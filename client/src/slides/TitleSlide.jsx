@@ -5,7 +5,7 @@ export default function TitleSlide() {
         <div className="fade-up opacity-0 stagger-1">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-8">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-xs font-mono text-accent tracking-wider uppercase">Advanced Machine Learning</span>
+            <span className="text-xs font-mono text-accent tracking-wider uppercase">Advanced Machine Learning & Deep Learning</span>
           </div>
         </div>
 
