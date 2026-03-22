@@ -36,7 +36,7 @@ export default function TitleSlide() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
-              <span>Team TLQ</span>
+              <span>Team : Bias and Variance</span>
             </div>
             <div className="w-px h-4 bg-border" />
             <span className="font-mono text-xs">Spring 2026</span>

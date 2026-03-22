@@ -81,7 +81,7 @@ export default function ConclusionSlide() {
         {/* Thank you */}
         <div className="mt-6 text-center fade-up opacity-0 stagger-5">
           <p className="text-lg text-text-muted">
-            Thank you — <span className="gradient-text font-semibold">Team TLQ</span>
+            Thank you — <span className="gradient-text font-semibold">Team Bias and Variance</span>
           </p>
         </div>
       </div>
