@@ -39,9 +39,9 @@ export default function TitleSlide() {
               <span>Team : Bias and Variance</span>
             </div>
             <div className="w-px h-4 bg-border" />
-            <span className="font-mono text-xs">Spring 2026</span>
+            <span className="font-mono text-xs">Phase - 1</span>
             <div className="w-px h-4 bg-border" />
-            <span className="font-mono text-xs">12 Slides</span>
+            <span className="font-mono text-xs">18 Slides</span>
           </div>
         </div>
       </div>
