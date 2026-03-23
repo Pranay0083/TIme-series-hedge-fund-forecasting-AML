@@ -1,9 +1,9 @@
 export default function ResultsSlide() {
   const pipelines = [
-    { name: 'Advanced LightGBM', score: 0.7245, h1: 0.752, h3: 0.738, h10: 0.711, h25: 0.698, highlight: false },
-    { name: 'Enhanced + Symbolic', score: 0.7312, h1: 0.758, h3: 0.744, h10: 0.718, h25: 0.705, highlight: false },
-    { name: 'Per-Horizon IC', score: 0.7328, h1: 0.761, h3: 0.746, h10: 0.720, h25: 0.704, highlight: false },
-    { name: 'Per-SubCat * Hz (20 models)', score: 0.7356, h1: 0.764, h3: 0.749, h10: 0.722, h25: 0.707, highlight: false },
+    { name: 'Advanced LightGBM', score: 0.1623, h1: 0.752, h3: 0.738, h10: 0.711, h25: 0.698, highlight: false },
+    { name: 'Enhanced + Symbolic', score: 0.2335, h1: 0.758, h3: 0.744, h10: 0.718, h25: 0.705, highlight: false },
+    { name: 'Per-Horizon IC', score: 0.2521, h1: 0.761, h3: 0.746, h10: 0.720, h25: 0.704, highlight: false },
+    { name: 'Per-SubCat * Hz (20 models)', score: 0.2441, h1: 0.764, h3: 0.749, h10: 0.722, h25: 0.707, highlight: false },
   ]
 
   const maxScore = Math.max(...pipelines.map((p) => p.score))
