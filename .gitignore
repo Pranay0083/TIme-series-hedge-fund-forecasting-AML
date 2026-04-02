@@ -88,7 +88,7 @@ logs/
 *.log
 outputs/
 results/
-submissions/
+# submissions/
 
 # ============================================
 # OS Generated

@@ -1,11 +1,14 @@
-import lightgbm as lgb
-import xgboost as xgb
-import numpy as np
-import importlib
+import importlib.util
+import os
 
-import sys, os, importlib
-spec = importlib.util.spec_from_file_location("01_optimization_objective", 
-       os.path.join(os.path.dirname(__file__), "01_optimization_objective.py"))
+import lightgbm as lgb
+import numpy as np
+import xgboost as xgb
+
+spec = importlib.util.spec_from_file_location(
+    "01_optimization_objective",
+    os.path.join(os.path.dirname(__file__), "01_optimization_objective.py"),
+)
 custom_metric_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(custom_metric_module)
 lgbm_weighted_rmse_eval = custom_metric_module.lgbm_weighted_rmse_eval

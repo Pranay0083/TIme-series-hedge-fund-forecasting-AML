@@ -3,16 +3,18 @@ import pandas as pd
 import numpy as np
 import os
 import sys
-import importlib
+import importlib.util
 
-# Add current path to import custom modules
-current_dir = os.path.dirname(os.path.abspath(__file__))
-if current_dir not in sys.path:
-    sys.path.append(current_dir)
+# Shared modules and model artifacts live in parent pipeline/deeplearning/
+_DL_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _DL_ROOT not in sys.path:
+    sys.path.append(_DL_ROOT)
+
 
 def import_local_module(module_name):
-    # Dynamic import to handle filenames starting with numbers
-    spec = importlib.util.spec_from_file_location(module_name, os.path.join(current_dir, f"{module_name}.py"))
+    spec = importlib.util.spec_from_file_location(
+        module_name, os.path.join(_DL_ROOT, f"{module_name}.py")
+    )
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -165,7 +167,7 @@ def run_submission_mode(train_df, test_df=None):
         submission_preds = np.zeros(len(test_df))
         test_df_reset = test_df.reset_index(drop=True)
     
-    os.makedirs(os.path.join(current_dir, 'models'), exist_ok=True)
+    os.makedirs(os.path.join(_DL_ROOT, 'models'), exist_ok=True)
     print(f"Features mapped ({len(features)} dims). Commencing full training...")
 
     for h in [1, 3, 10, 25]:
@@ -183,7 +185,7 @@ def run_submission_mode(train_df, test_df=None):
         estimator.fit(X_train, y_train, w_train)
         
         # Save Model Weights
-        model_path = os.path.join(current_dir, 'models', f'lgb_horizon_{h}.txt')
+        model_path = os.path.join(_DL_ROOT, 'models', f'lgb_horizon_{h}.txt')
         estimator.save_model(model_path)
         print(f"Saved model to: {model_path}")
         
@@ -231,7 +233,7 @@ def run_inference_mode(train_df, test_df):
             continue
             
         estimator = HorizonSpecificEstimator(horizon=h, model_type='lgb')
-        model_path = os.path.join(current_dir, 'models', f'lgb_horizon_{h}.txt')
+        model_path = os.path.join(_DL_ROOT, 'models', f'lgb_horizon_{h}.txt')
         
         if not os.path.exists(model_path):
             raise FileNotFoundError(f"Saved model missing: {model_path}. You must run --mode submit first.")
