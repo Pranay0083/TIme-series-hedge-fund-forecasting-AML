@@ -54,8 +54,8 @@ export default function ConclusionSlide() {
                 desc: 'Replace current hard Information Coefficient (IC) gates with automated representation learning to distill core dimensional features.',
               },
               {
-                title: 'Tabular Transformers',
-                desc: 'Use cross-attention mechanisms natively across entities and features to directly capture nuanced, non-linear relationships.',
+                title: 'Tabular Transformers & MLP Embeddings ✅',
+                desc: 'Implemented in Phase 2 — MLP with entity embeddings and FT-Transformer to capture non-linear cross-feature relationships via learned representations.',
               },
             ].map((item) => (
               <div key={item.title} className="glass-card p-4 hover:border-accent/30 transition-all">

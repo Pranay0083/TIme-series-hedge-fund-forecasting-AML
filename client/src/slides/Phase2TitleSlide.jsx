@@ -1,27 +1,27 @@
-export default function TitleSlide() {
+export default function Phase2TitleSlide() {
   return (
     <div className="flex items-center justify-center h-full px-8">
       <div className="text-center max-w-4xl">
         <div className="fade-up opacity-0 stagger-1">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-8">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-xs font-mono text-accent tracking-wider uppercase">Advanced Machine Learning & Deep Learning</span>
+            <span className="text-xs font-mono text-accent tracking-wider uppercase">Phase 2 — Deep Learning</span>
           </div>
         </div>
 
-        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 fade-up opacity-0 stagger-2 leading-tight">
-          <span className="gradient-text">Hedge Fund</span>
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 fade-up opacity-0 stagger-2 leading-tight">
+          <span className="gradient-text">MLP + Entity Embeddings</span>
           <br />
-          <span className="text-text-primary">Time-Series Forecasting</span>
+          <span className="text-text-primary text-3xl md:text-4xl">for Tabular Time-Series</span>
         </h1>
 
         <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12 fade-up opacity-0 stagger-3">
-          Multi-horizon return prediction using LightGBM ensembles,
-          symbolic regression, and MLP with entity embeddings
+          Transitioning from gradient-boosted trees to neural networks with learned
+          categorical representations for hedge fund return forecasting
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 fade-up opacity-0 stagger-4">
-          {['LightGBM', 'PyTorch', 'Entity Embeddings', 'Symbolic Regression', 'Multi-Horizon'].map((tag) => (
+          {['PyTorch', 'Entity Embeddings', 'BatchNorm', 'Cosine Annealing', 'AdamW'].map((tag) => (
             <span key={tag} className="px-4 py-2 rounded-lg bg-surface-lighter border border-border text-sm text-text-secondary font-mono">
               {tag}
             </span>
@@ -39,9 +39,9 @@ export default function TitleSlide() {
               <span>Team : Bias and Variance</span>
             </div>
             <div className="w-px h-4 bg-border" />
-            <span className="font-mono text-xs">Phase 1 & 2</span>
+            <span className="font-mono text-xs">Phase - 2</span>
             <div className="w-px h-4 bg-border" />
-            <span className="font-mono text-xs">25 Slides</span>
+            <span className="font-mono text-xs">Deep Learning Track</span>
           </div>
         </div>
       </div>

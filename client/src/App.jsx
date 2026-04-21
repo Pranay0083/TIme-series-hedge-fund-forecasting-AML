@@ -22,7 +22,17 @@ import ResultsSlide from './slides/ResultsSlide'
 import ICAnalysisSlide from './slides/ICAnalysisSlide'
 import ConclusionSlide from './slides/ConclusionSlide'
 
+// Phase 2 slides
+import Phase2TitleSlide from './slides/Phase2TitleSlide'
+import WhyDeepLearningSlide from './slides/WhyDeepLearningSlide'
+import MLPArchitectureSlide from './slides/MLPArchitectureSlide'
+import EmbeddingsDeepDiveSlide from './slides/EmbeddingsDeepDiveSlide'
+import TrainingPipelineSlide from './slides/TrainingPipelineSlide'
+import DesignDecisionsSlide from './slides/DesignDecisionsSlide'
+import Phase2ConclusionSlide from './slides/Phase2ConclusionSlide'
+
 const slides = [
+  // Phase 1
   { component: TitleSlide, title: 'Title' },
   { component: ProblemSlide, title: 'Problem' },
   { component: DatasetSlide, title: 'Dataset' },
@@ -41,7 +51,15 @@ const slides = [
   { component: AdvancedSlide, title: 'Advanced' },
   { component: ICAnalysisSlide, title: 'IC Analysis' },
   { component: ResultsSlide, title: 'Results' },
-  { component: ConclusionSlide, title: 'Conclusion' },
+  { component: ConclusionSlide, title: 'Phase 1 Conclusion' },
+  // Phase 2 — MLP + Entity Embeddings
+  { component: Phase2TitleSlide, title: '⚡ Phase 2 — DL' },
+  { component: WhyDeepLearningSlide, title: 'Why Deep Learning?' },
+  { component: MLPArchitectureSlide, title: 'MLP Architecture' },
+  { component: EmbeddingsDeepDiveSlide, title: 'Entity Embeddings' },
+  { component: TrainingPipelineSlide, title: 'Training Pipeline' },
+  { component: DesignDecisionsSlide, title: 'Design Decisions' },
+  { component: Phase2ConclusionSlide, title: 'Phase 2 Conclusion' },
 ]
 
 function App() {
@@ -81,6 +99,9 @@ function App() {
 
   const SlideComponent = slides[current].component
 
+  // Determine if current slide is in Phase 2 section
+  const isPhase2 = current >= 19
+
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-surface noise-bg">
       {/* Ambient background orbs */}
@@ -95,7 +116,7 @@ function App() {
 
       {/* Sidebar navigation */}
       <div className={`fixed top-0 left-0 h-full w-64 z-50 glass transition-transform duration-300 ease-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <div className="p-6">
+        <div className="p-6 h-full overflow-y-auto">
           <h3 className="text-sm font-semibold text-text-muted uppercase tracking-wider mb-6">Slides</h3>
           <div className="space-y-1">
             {slides.map((slide, i) => (
@@ -104,7 +125,7 @@ function App() {
                   i === current 
                     ? 'bg-primary/20 text-primary-light font-medium' 
                     : 'text-text-secondary hover:text-text-primary hover:bg-surface-lighter'
-                }`}>
+                } ${i === 19 ? 'mt-4 border-t border-border pt-4' : ''}`}>
                 <span className="text-text-muted mr-3 font-mono text-xs">{String(i + 1).padStart(2, '0')}</span>
                 {slide.title}
               </button>
@@ -125,6 +146,11 @@ function App() {
           </div>
         </button>
         <div className="flex items-center gap-3">
+          {isPhase2 && (
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent">
+              Phase 2
+            </span>
+          )}
           <span className="text-xs font-mono text-text-muted">
             {String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
           </span>
